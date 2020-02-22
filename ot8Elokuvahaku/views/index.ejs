@@ -1,0 +1,100 @@
+<!--
+    file: index.ejs
+    desc: OT8, elokuvahaku
+            - pääsivu: hakuehtolomake, tulostaulu ja virheilmoitukset
+    date: 14.1.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+
+<body>
+
+<div class="container">
+    <div class="palkki"><h1>Elokuvat</h1></div> 
+    <div class="card">
+        <h2>Hae elokuva</h2>
+        <!--hakulomake-->
+        <div class="lomaketausta">
+          <form method="POST" action="/haku/" >
+            <!--hakusana-->
+            <label for="nimi">Nimi</label>
+            <input type="text" id="nimi" name="hakusana" value="<%=lomaketiedot.hakusana%>" placeholder="Anna hakusana.." size="100">
+            
+            <!--hakukohteen valintapainikkeet-->         
+            <div class="row valinta">
+                <label for="kohde">Haun kohde:</label>
+                <%- include("includes/kohteenvalinta", { "kohde" : "Elokuvan nimi"}) %>
+                <%- include("includes/kohteenvalinta", { "kohde" : "Ohjaajan nimi"}) %>
+                <%- include("includes/kohteenvalinta", { "kohde" : "Näyttelijä"}) %>
+            </div>
+
+            <!--tuloslomakkeen järjestyksen valintapainikkeet-->          
+            <div class="row valinta">
+                <label for="jarjestys">Hakutuloksen järjestys:</label>
+                <%- include("includes/jarjestysvalinta", { "jarjestys" : "Nimen mukaan nousevasti"}) %> 
+                <%- include("includes/jarjestysvalinta", { "jarjestys" : "Nimen mukaan laskevasti"}) %>
+                <%- include("includes/jarjestysvalinta", { "jarjestys" : "Uusin ensin"}) %>   
+                <%- include("includes/jarjestysvalinta", { "jarjestys" : "Vanhin ensin"}) %>
+            </div>
+
+            <!--kategorian(t) valintaruudut-->
+            <label for="kategorianimi">Valitse kategoria(t):</label>
+            <div class="row valinta">
+                <% kategoriat.forEach((kategoria) => { %>   
+                    <%- include("includes/kategoriavalinta", { "arvo" : kategoria.kategoria, "teksti" : kategoria.kategoria }) %>
+                <% }); %>
+            </div>
+            
+            <!--lomakkeen lähetys-->
+            <input type="submit" name="haku" value="Käynnistä haku">
+          </form>
+        </div>
+
+        <!--virheilmoitus, jos virheitä havaittu-->
+        <% if (virhe) { %>
+            <div class="alert alert-danger mt-3">
+                <%= virhe %>
+            </div>
+        <% } %>
+
+        <!-- tulostaulukko, jos hakutulos ei ole tyhjä-->
+        <% if (elokuvat) { %>
+            <hr>
+            <!--elokuvien taulukko-->
+            <table class="table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nimi</th>
+                        <th class="kapea">Vuosi</th>
+                        <th>Kategoria</th>
+                        <th>Ohjaajat</th>
+                        <th>Näyttelijät</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% elokuvat.forEach((elokuva) => { %>   <!--käy kaikki hakutuloksen elokuvat läpi-->               
+                      <tr>
+                        <td><%=elokuva.nimi%></td>
+                        <td class="kapea"><%=elokuva.valmistumisvuosi%></td>
+                        <td><%=elokuva.kategoria%></td>
+                        <td><%=elokuva.ohjaajat%></td>
+                        <td><%=elokuva.nayttelijat%></td>
+                      </tr>    
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } %> 
+
+        <!--jos hakutuloksia liikaa (yli kymmenen) -> virheilmoitus-->
+        <% if (ylitys) { %>
+            <div class="alert alert-danger mt-3">
+                <%= "Haulla löytyi yli kymmenen elokuvaa, näytetään vain ensimmäiset 10 tulosta. Ole hyvä ja tarkenna hakua." %>
+            </div>
+        <% } %>
+    
+    </div>
+
+    <div class="footer">@Maarit.Parkkonen, 2019</div>
+</div>
+
+</body>

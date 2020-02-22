@@ -1,0 +1,20 @@
+{
+  "name": "ot10",
+  "version": "1.0.0",
+  "description": "ot10",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maarit Parkkonen",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^8.4.0",
+    "jwt-decode": "^2.2.0",
+    "mysql": "^2.16.0",
+    "restify": "^7.5.0",
+    "restify-cors-middleware": "^1.1.1",
+    "restify-jwt-community": "^1.0.9"
+  }
+}

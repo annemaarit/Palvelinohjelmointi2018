@@ -1,0 +1,38 @@
+<%- include("includes/header"); -%>
+<script src="//cdn.ckeditor.com/4.11.1/basic/ckeditor.js"></script>
+<script src="/js/app.js"></script>
+</head>
+<body>
+
+<div class="header"><h1>Kirjoita blogiteksti</h1></div>  
+
+<div class="container">
+  
+    <form method="POST" action="/tallenna" onSubmit="ilmoitaJulkaistu()">
+      <label for="otsikko">Otsikko</label>
+      <input type="text" id="otsikko" name="otsikko" placeholder="Kirjoita aiheen otsikko..">
+  
+      <label for="teksti">Teksti</label>
+      <textarea id="teksti" name="teksti" style="height:200px"></textarea>
+      <script>
+          CKEDITOR.replace( 'teksti' );
+      </script>
+  
+      <input type="submit" name="julkaise" value="Julkaise kirjoitus blogiin">
+
+      <!--<a href="/" class="btn-siirry">Katsele julkaisuja</a> -->
+
+    </form>
+    <br>
+      <div class="dropup">
+        <button class="dropbtn">Valitse poistettava kirjoitus</button>
+        <div class="dropup-content">
+            <% kirjoitukset.forEach ((kirjoitus)=>{ %>
+                  <a href="/poista/<%=kirjoitus.aikaleima%>"><%=kirjoitus.otsikko%></a>
+            <% }); %>
+        </div>
+      </div>
+
+</div>
+
+  <%- include("includes/footer"); -%>

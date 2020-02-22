@@ -1,0 +1,9 @@
+<!--kategorioiden valintaruudut-->
+<label class="checkbox-inline ml-3 mt-2">
+    <% if (lomaketiedot.kategorianimi && (lomaketiedot.kategorianimi.indexOf(arvo) > -1)) { %> <!--ruutu valittu-->
+        <input type="checkbox" name="kategorianimi" value="<%=arvo%>" checked> 
+    <% } else { %>
+        <input type="checkbox" name="kategorianimi" value="<%=arvo%>"> <!--ruutu ei valittu-->
+    <% } %>
+        <%=teksti%>
+</label>

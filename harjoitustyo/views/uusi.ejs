@@ -1,0 +1,44 @@
+<!--
+    file: uusi.ejs
+    desc: Kumpparit Oy
+            - uuden tuotteen tai ominaisuuksiltaan samanlaisten uusien tuotteiden lisäys
+    date: 11.8.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+
+    <div class="sisalto">   
+      <form method="POST" action="/lisaaUusi/">
+        <h3 class="lomakeNimi">Uusi tuote</h3>
+        <table class="haku">
+            <tr>
+                <th>Malli</th>
+                <th>Väri</th>
+                <th>Koko</th>
+                <th>Kpl</th>
+            </tr>
+            <tr>
+                <!-- ominaisuusvalikot -->
+                <% let haku=false %>
+                <%- include("includes/valikkorivi", {"nimi":"malli","ominaisuus":ominaisuudet.mallit,"haku":haku,"valittu":null}) -%>
+                <%- include("includes/valikkorivi", {"nimi":"vari","ominaisuus":ominaisuudet.varit,"haku":haku,"valittu":null}) -%>
+                <%- include("includes/valikkorivi", {"nimi":"koko","ominaisuus":ominaisuudet.koot,"haku":haku,"valittu":null}) -%>
+                <!-- kappalemäärä -->
+                <td>
+                    <input type="number" name="kpl" min="1" max="1000" class="form-control syoteNro" value="1"></<input>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="tallenna" value="Tallenna" class="btn btn2">
+        <a href="/" class="btn btn2">Sulje</a>
+      </form>
+    </div>
+
+    <!-- tallennuksen jälkeen -->
+    <% if (tallennettu) { %>
+        <script>
+            alert(`Tuotetta: <%=tiedot.malli%>, <%=tiedot.vari%>, <%=tiedot.koko%> on tallennettu <%=tiedot.kpl%> kpl.`)
+        </script>
+    <% }; %>
+
+<%- include("includes/footer"); -%>

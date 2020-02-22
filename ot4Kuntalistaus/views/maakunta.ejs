@@ -1,0 +1,42 @@
+<%- include("includes/header"); -%>
+<%- include("includes/sidebar"); -%>
+
+        <img src=<%=kuva%> >
+
+        <h2><%=otsikko%></h2>
+
+       <a href="/" class="btn btn-success mb-4"><%= painiketeksti%></a>
+
+        <table class="table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Koodi</th>
+                    <th>Nimi</th>
+                    <th>Maakunta</th>
+                    <th>Seutukunta</th>
+                    <th>Kuntamuoto</th>
+                </tr>
+            </thead>
+            <tbody>     
+
+            <% datat.forEach((data) => { %>
+                <% if ((data.Maakunta)==(maakunnan_nimi)) { %> 
+                    <tr>                    
+                        <td><%= data.Kuntakoodi %></td> 
+                        <td><%
+                            if ((data.Nimi_fi)==((data.Nimi_se).trim())){ %>
+                                <%= data.Nimi_fi; %>
+                            <% }
+                            else{ %>
+                                <%= data.Nimi_fi+" ("+data.Nimi_se+")"; %>
+                            <% } %>
+                        </td> 
+                        <td><%= data.Maakunta %></td> 
+                        <td><%= data.Seutukunta %></td> 
+                        <td><%= data.Kuntamuoto %></td> 
+                    </tr>
+                <% } %>
+            <% }); %>
+            </tbody>
+        </table>    
+<%- include("includes/footer") -%>

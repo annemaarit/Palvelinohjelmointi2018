@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--file: ilmoittautuminen.html
+    desc: Ilmoittautumislomake
+    date: 12.12.2018
+    auth: Maarit Parkkonen-->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Kehityspäivät: ilmoittautuminen</title>
+
+    <!-- Bootstrap core CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template ja omat lisäystyylit-->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+<img 	
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+			  
+            <ul class="sidebar-nav">
+				<li>
+					<img src="images/xamk_logo.png" alt="XAMK"> 	
+				</li>
+                <li>
+                    <a href="index.html">Tervetuloa</a>
+                </li>				
+                <li>
+                    <a href="info.html">Info</a>
+                </li>
+                <li>
+                    <a href="ohjelma.html">Ohjelma</a>
+                </li>
+                <li>
+                    <a id=valittu href="#">Ilmoittautuminen</a>
+                </li>
+                <li>
+                    <a href="majoitus.html">Majoitus</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <div class="container-fluid">
+                <div id="sisus">
+                  <h1>Ilmoittautuminen</h1>
+                    <h3>Osallistumismaksu</h3>
+                    <p>Osallistumismaksu 190 e (alv 0 %) Hintaan sisältyy ruokailut ja kahvitukset, matkat ja majoitukset 
+                    ovat omakustanteisia.</p>
+
+        <!--bootstrapin vaakasuuntainen lomake-->	
+        <form method="POST" action="/tallenna" class="form-horizontal">
+       
+         <h3>Osallistujan tiedot</h3>
+
+         <!--tekstisyötteet---------------------------------------------------------> 
+         <div class="form-group">
+          <label class="control-label col-sm-3" for="etunimi">Etunimi *</label>
+            <div class="col-sm-9">
+            <input type="text" class="form-control" id="etunimi" name="etunimi">
+          </div>
+         </div>
+        
+
+         <div class="form-group">
+          <label class="control-label col-sm-3" for="sukunimi">Sukunimi *</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="sukunimi" name="sukunimi">
+            </div>
+         </div>	
+
+         <div class="form-group">
+            <label class="control-label col-sm-3" for="titteli">Titteli *</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="titteli" name="titteli">
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label class="control-label col-sm-3" for="organisaatio">Organisaatio *</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="organisaatio" name="organisaatio">
+            </div>
+         </div>
+
+         <div class="form-group">
+                <label class="control-label col-sm-3" for="katuosoite">Katuosoite *</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="katuosoite" name="katuosoite">
+                </div>
+         </div>        
+
+         <div class="form-group">
+                <label class="control-label col-sm-3" for="organisaatio">Postinumero *</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="postinumero" name="postinumero">
+                </div>
+         </div>
+
+         <div class="form-group">
+                <label class="control-label col-sm-3" for="postiosoite">Postiosoite *</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="postiosoite" name="postiosoite">
+                </div>
+         </div>
+
+         <div class="form-group">
+                <label class="control-label col-sm-3" for="puhnro">Puhelinnumero *</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="puhnro" name="puhnro">
+                </div>
+         </div>	      
+
+         <div class="form-group">
+          <label class="control-label col-sm-3" for="sposti">Sähköpostiosoite *</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="sposti" name="sposti">
+            </div>
+         </div>	  
+
+         <h3>Muut tiedot</h3>
+
+         <div class="form-group">
+                <label class="control-label col-sm-3" for="ruoka">Erityisruokavalio</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ruoka" name="ruoka">
+                </div>
+         </div>	          
+
+         <div class="form-group">
+                <label class="control-label col-sm-3" for="terveiset">Terveisiä järjestäjille</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="terveiset" name="terveiset">
+                </div>
+         </div>	  
+
+         <div class="form-group">        
+                <div class="col-sm-offset-3 col-sm-9">
+                    <input class="btn btn-success" type="submit" name="laheta" value="Lähetä">
+                    <a class="btn btn-primary" href="/">Peruuta</a>                  
+                </div>
+         </div>
+        </form>
+
+        <h3>Lisätietoja</h3>
+        <p>Lisätiedot ja kysymykset: <a href="#">janne.turunen@xamk.fi</a></p>   
+
+        </div>
+       </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+</body>
+
+</html>

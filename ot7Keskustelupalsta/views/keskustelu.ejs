@@ -1,0 +1,67 @@
+<!--
+    file: keskustelu.ejs
+    desc: OT7, keskustelupalsta
+            - yksittäisen keskustelun oma sivu
+                    * aloitusviesti
+                    * vastaukset
+                    * lomake uuden vastauksen kirjoitukseen
+    date: 12.1.2019
+    auth: Maarit Parkkonen
+--> 
+
+<%- include("includes/header"); -%>
+
+<body>
+
+<div class="palkki"><h1>Keskustelupalsta KÄÄK</h1></div> 
+
+<div class="container">
+    <div class="card">
+        <!--aloitusviesti-->
+        <% let aika1 = new Date(keskustelu.aika); %>              <!--ketjun aloitusaika-->
+        <% let minuutit1 = ('0'+aika1.getMinutes()).slice(-2); %> <!--stringiksi: alkaa nollalla, otetaan kaksi viimeistä merkkiä-->
+        <h2><%=keskustelu.otsikko%></h2>
+        <i><%=keskustelu.kirjoittaja%></i>,
+        <%=aika1.getDate()%>.<%=aika1.getMonth()+1%>.<%=aika1.getFullYear()%> <%=aika1.getHours()%>:<%=minuutit1%>
+        <p class="newspaper"><%-keskustelu.aloitusTeksti-%></p>
+
+        <!--vastaukset-->
+        <ul>
+            <% vastaukset.forEach((vastaus) => { %>
+                <% let aika = new Date(vastaus.aika); %>        <!--vastauksen aika-->
+                <% let minuutit = ('0'+aika.getMinutes()).slice(-2); %> 
+                <hr>
+                <li><i><%=vastaus.kirjoittaja%></i>,            <!--vastauksen tiedot-->
+                   <%=aika.getDate()%>.<%=aika.getMonth()+1%>.<%=aika.getFullYear()%> <%=aika.getHours()%>:<%=minuutit%> 
+                   <br><%-vastaus.teksti-%>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Kirjoita uusi viesti</h3>
+        
+        <!--uuden viestin kirjoituslomake-->
+        <form method="POST" action="/tallennaVastaus/" >
+
+            <label for="nimi">Nimi</label>
+            <input type="text" id="kirjoittaja" name="kirjoittaja" placeholder="Kirjoita nimimerkki..">
+        
+            <label for="teksti">Teksti</label>
+            <textarea id="teksti" name="teksti" style="height:200px"></textarea>
+            <script>
+                CKEDITOR.replace( 'teksti' );
+            </script>
+
+            <input type="hidden" id="id" name="id" value="<%=keskustelu.keskusteluId%>">
+
+            <input type="submit" name="aloita" value="Lähetä vastaus">
+            <a href="/"><button type="button" class="btn">Palaa pääsivulle</button></a>
+          </form>
+    </div>
+    
+</div>
+
+</body>
+<%- include("includes/footer"); -%>

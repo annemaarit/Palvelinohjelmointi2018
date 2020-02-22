@@ -1,0 +1,24 @@
+<%- include("includes/header"); -%>
+
+</head>
+<body>
+
+<div class="palkki"><h1>Blogitekstit.. </h1></div> 
+
+<div class="container">
+
+    <% kirjoitukset.forEach ((kirjoitus)=>{ %>
+       <% let aika = new Date(kirjoitus.aikaleima); %>
+        <div class="card">
+            <p><i><%=aika.getDate()%>.<%=aika.getMonth()+1%>.<%=aika.getFullYear()%> <%=aika.getHours()%>:<%=aika.getMinutes()%></i></p>
+            <p><%=kirjoitus.kirjoittaja%></p>
+            <h1><%=kirjoitus.otsikko%></h1>
+            <p><%-kirjoitus.teksti-%></p> <!--huom! ei =, vaan pelkkä -, jotta html muotoilut huomioidaan-->
+            <a href="/tykatty/<%=kirjoitus.aikaleima%>" class="btn-hyva">Hyvin sanottu (<%=kirjoitus.hyva%>)</a>
+            <a href="/inhottu/<%=kirjoitus.aikaleima%>" class="btn-huono">En tykännyt (<%=kirjoitus.huono%>)</a>
+        </div>
+    <% }); %>
+
+</div>
+
+<%- include("includes/footer"); -%>

@@ -1,0 +1,37 @@
+<!--
+    file: tuotteet.ejs
+    desc: Kumpparit Oy
+            - tuotetaulukko, jossa tuotekohtainen valinta muokkaukseen ja poistoon
+    date: 11.8.2019
+    auth: Maarit Parkkonen
+--> 
+
+<table class="tuotteet">
+        <tr>
+            <th>Id</th>
+            <th>Malli</th>
+            <th>Väri</th>
+            <th>Koko</th>
+            <th></th>
+        </tr>
+            <% tuotteet.forEach((tuote)=> { %> <!-- rivien läpikäynti -->
+                <tr>
+                    <td><%=tuote.id%></td>
+                    <td><%=tuote.malli%></td>
+                    
+                    <% if (tuote.vari=="vihrea"){ %>
+                        <td>vihreä</td>
+                    <% } else { %>
+                        <td><%=tuote.vari%></td>
+                    <% }; %>
+
+                    <td><%=tuote.koko%></td>
+                    <td>    <!-- toimintopainikkeet, joissa tuotteen id ja lähettävän sivun nimi -->
+                        <a href="/muokkaa/<%=tuote.id%>/<%=sivu%>" class="btnSmall btn1"><i class="fa fa-edit"></i></a> <!--muokkaus-->
+                        <a href="/poisto/<%=tuote.id%>/<%=sivu%>" class="btnSmall btn4" onclick="return kysyPoisto()"><i class="fa fa-trash"></i></a><!--poisto-->
+                    </td> 
+                </tr>
+            <% }); %>
+            
+
+    </table>

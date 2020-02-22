@@ -1,0 +1,44 @@
+<!--
+    file: index.ejs
+    desc: OT8, elokuvahaku
+            - 
+    date: 13.1.2019
+    auth: Maarit Parkkonen
+--> 
+
+<%- include("includes/header"); -%>
+
+<body>
+
+<div class="palkki"><h1>Keskustelupalsta</h1></div> 
+
+<div class="container">
+    <div class="card">
+        <h2>Aloita uusi keskustelu</h2>
+        <!--uusi keskustelu lomake-->
+        <form method="POST" action="/tallennaUusiKeskustelu/" >
+            <label for="otsikko">Otsikko</label>
+            <input type="text" id="otsikko" name="otsikko" placeholder="Kirjoita keskustelun otsikko..">
+
+            <label for="nimi">Nimi</label>
+            <input type="text" id="kirjoittaja" name="kirjoittaja" placeholder="Kirjoita nimimerkki..">
+        
+            <label for="teksti">Teksti</label>
+            <textarea id="teksti" name="teksti" style="height:200px"></textarea>
+            <script>
+                CKEDITOR.replace( 'teksti' );
+            </script>
+        
+            <input type="submit" name="aloita" value="Aloita uusi keskustelu">
+      
+            <a href="/" class="btn">Peru</a>
+      
+          </form>
+
+
+    </div>
+    
+</div>
+
+</body>
+<%- include("includes/footer"); -%>

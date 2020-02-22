@@ -1,0 +1,57 @@
+<!--
+    file: index.ejs
+    desc: OT12, Yle Areena API
+            - pääsivu, sanahaku aineistosta ja painike: mitä nyt soi radiossa 
+    date: 20.1.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+
+<body>
+
+<div class="palkki"><h1>Yle areena</h1></div> 
+
+<div class="container">
+    <div class="card">
+        <!--hakulomake-->
+        <form method="POST" action="/hae/" >
+            <!--hakusana-->
+            <label for="hakusana">Hakusana (kohteena kaikki Yle areenan ainestot, max. 5 tulosta)</label>
+            <input type="text" id="hakusana" name="hakusana" placeholder="Anna YKSI hakusana.." size="100">
+            <!--lomakkeen lähetys-->
+            <input type="submit" name="haku" value="Käynnistä haku">
+        </form>
+        <!--jos on hakutuloksia ja kysessä on sanahaku-->
+        <% if ((datat.length!=0)&&(haku==true)) { %>
+              <ul>                                                            
+                  <% datat.forEach((data) => { %>                 
+                      <li> 
+                            <b><%=data.id%></b> <%=data.description.fi%> <!--aineiston id ja kuvaus-->
+                      </li>
+                      <hr>
+                  <% }); %>
+              </ul>
+          <% } %>
+    </div>
+
+    <!--radiokortti-->
+    <div class="card">
+        <a href="/nytSoi/" class="btn">Mitä nyt on radion soittolistalla?</a>
+        <!--jos on hakutuloksia ja kysessä ei ole sanahaku-->
+        <% if ((datat.length!=0)&&(haku==false)) { %>
+              <ul>                                                            
+                  <% datat.forEach((data) => { %>                 
+                      <li>
+                            <b><%=data.service.id%></b> <%=data.content.description.unknown%> <!--radioasema ja musiikin kuvaus-->
+                      </li>
+                      <hr>
+                  <% }); %>
+              </ul>
+          <% } %>
+    </div>
+
+
+</div>
+
+</body>
+<%- include("includes/footer"); -%>

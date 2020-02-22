@@ -1,0 +1,9 @@
+<!--tulostaulukon järjestyksen valintapainikkeet-->
+<label class="radio-inline ml-3 mt-2">
+    <% if (lomaketiedot.jarjestys == jarjestys) { %>
+            <input type="radio" name="jarjestys" value="<%=jarjestys%>" checked> <!--on valittu-->
+         <% } else { %> 
+            <input type="radio" name="jarjestys" value="<%=jarjestys%>"> <!--on valittu-->
+        <% } %>
+            <%=jarjestys%>
+</label>

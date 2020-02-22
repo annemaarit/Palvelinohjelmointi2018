@@ -1,0 +1,49 @@
+<!--
+    file: index.ejs
+    desc: OT9, uutiskerääjä
+            - pääsivu, muodostaa html-näkymän
+                    ->uutiskortit tietosisältöineen
+    date: 16.1.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+
+<body>
+
+<div class="container">
+    <div class="palkki"><h1>Uutiset</h1></div> 
+
+        <!--jos virhe, annetaan virheilmoitus-->
+        <% if (virhe) { %>
+            <div class="alert alert-danger mt-3"> <%=virhe%> </div>
+        <!--uutissyötteiden haku onnistunut-->
+        <% }else{ %>
+            <!--uutiskorttien muodostaminen-->
+            <% uutiset.forEach((uutinen)=>{ %>
+                <div class="card">
+                    <!--uutisen otsikko linkkinä -->
+                    <a href="<%=uutinen.linkki%>"><h3><%=uutinen.otsikko%></h3></a>
+
+                    <!--ajan muodostus-->
+                    <% let aika = new Date(uutinen.aika); %>    
+                    <% let minuutit = ('0'+aika.getMinutes()).slice(-2); %> 
+
+                    <!--pp.mm.vvv rss-lähde-->
+                    <h5> <%=aika.getDate()%>.<%=aika.getMonth()+1%>.<%=aika.getFullYear()%> <%=aika.getHours()%>:<%=minuutit%> <%=uutinen.toimitus%></h5>
+                    
+                    <!--uutiskuva-->
+                    <img src="<%=uutinen.kuva%>"> 
+
+                    <!--esittelyn sisältö-->
+                    <h4><%=uutinen.sisalto%></h4>
+                </div>       
+            <% }); %>
+        <% } %>
+    
+
+    <div class="footer">@Maarit.Parkkonen, 2019</div>
+</div>
+
+</body>
+
+</html>

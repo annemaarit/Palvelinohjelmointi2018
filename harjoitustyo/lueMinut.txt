@@ -1,0 +1,18 @@
+Versio 1.1
+
+--------------------------------------------------------------------------
+HUOM! Puuttuu node_module!!!!! eli npm install
+--------------------------------------------------------------------------
+
+Kumppari Oy:n myyntivaraston kirjanpito
+
+Lis‰‰ uusi tuote: 	Yhden tai useamman samoilla ominaisuuksilla olevan tuotteen lis‰ys.
+Etsi tuote: 		Tuotehaku id:ll‰. Haettua tuotetta voi muokata tai sen voi poistaa.
+Hae tuotteita: 		Tuotteiden haku ominaisuuksilla. Ominaisuuksia voi valita useita hiirell‰ maalaamalla tai poimimalla CTRL+hiiri. 
+			Hakutuloksen tuotteita voi muokata tai poistaa.
+N‰yt‰ varastotilanne:	Avaa koko varaston tilanteen tuoteryhmitt‰in. Jokaiselle tuoteryhm‰lle on laskettu sen 			kappalem‰‰r‰. Tuoteryhm‰‰n kuuluvat tuotteet voi avata n‰kyviin.
+			Tuoteryhm‰n tuotteita voi muokata tai poistaa.
+
+
+Tuote = kumisaapas
+Tuoteryhm‰ = malli, v‰ri, koko -yhdistelm‰ esim. premium, valkoinen, 38 on yksi tuoteryhm‰.

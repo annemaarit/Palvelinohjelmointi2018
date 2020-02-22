@@ -1,0 +1,47 @@
+<!--
+    file: index.ejs
+    desc: OT7, keskustelupalsta
+            - pääsivu, listaus kaikista keskusteluista uusimman viestin mukaisesti
+    date: 12.1.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+
+<body>
+
+<div class="palkki"><h1>Keskustelupalsta KÄÄK</h1></div> 
+
+<div class="container">
+    <div class="card">
+        <h2>Aiheet</h2>
+        <ul>                                                            <!--keskustelujen lista-->
+            <% keskustelut.forEach((keskustelu) => { %>                 <!--käy kaikki keskustelut läpi-->
+                <% let aika = new Date(keskustelu.aika); %>             <!--keskusteluketjun aloitusaika-->
+                <% let minuutit = ('0'+aika.getMinutes()).slice(-2); %> <!--stringiksi: alkaa nollalla, otetaan kaksi viimeistä merkkiä-->
+                <% let aikaUusin = new Date(uusin[0].uusinAika); %>     <!--uusimman vastauksen aika-->
+                <% let minuutitUusin = ('0'+aikaUusin.getMinutes()).slice(-2); %> 
+                
+                <li><a href="/naytaKeskustelu/<%=keskustelu.keskusteluId%>">    <!--keskustelun otsikko linkkinä keskustelun omalle sivulle-->
+                    <%=keskustelu.otsikko%></a>, 
+                    <i><%=keskustelu.kirjoittaja%></i>,
+                    aloitettu: <%=aika.getDate()%>.<%=aika.getMonth()+1%>.<%=aika.getFullYear()%> <%=aika.getHours()%>:<%=minuutit%> <!--ketjun aloitusaika-->
+                    <br>
+                    ->  Vastauksia: <%=keskustelu.kpl%> kpl
+                    <% if (keskustelu.kpl>0){ %>                        <!--jos keskustelulla vastauksia, näytetään uusimman vastauksen aika-->
+                        uusin: <%=aikaUusin.getDate()%>.<%=aikaUusin.getMonth()+1%>.<%=aikaUusin.getFullYear()%> <%=aikaUusin.getHours()%>:<%=minuutitUusin%>
+                    <% } %>
+                </li>
+                <hr>
+                <% uusin.shift() %>                                     <!--poistaa ekan tietueen uusimmat viestit taulukosta -->
+            <% }); %>
+        </ul>
+
+    
+    </div>
+
+    <a href="/uusiKeskustelu/" class="btn">Aloita uusi keskustelu</a> <!--annettujen tietojen tallennuspyyntö main.js:lle-->
+
+</div>
+
+</body>
+<%- include("includes/footer"); -%>

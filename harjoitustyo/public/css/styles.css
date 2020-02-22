@@ -1,0 +1,218 @@
+/*  file: styles.css
+    desc: Kumppari Oy tyylit
+    date: 11-21.8.2019
+    auth: Maarit Parkkonen*/
+    
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_contact_form*/
+/*värit: https://colorpalettes.net/color-palette-4001/ */
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: rgb(91, 76, 175);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(95, 81, 175);
+}
+
+.container {
+  border-radius: 10px;
+  background-color: #8c6a5c;
+  padding: 10px;
+  margin-top: 10px;
+  max-width: 800px; 
+}
+
+/*https://www.w3schools.com/howto/howto_css_cards.asp*/
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  /*transition: 0.3s;*/
+  border-radius: 15px; /* 5px rounded corners */
+  background-color:#dddcdc;
+  /*padding: 2px 16px;*/
+  margin: 10px;
+}
+
+.sisalto {
+  padding: 10px;
+  background-color: #b4cde6;
+  text-align: center;
+  margin: auto;
+}
+
+.lomakeNimi {
+  color:rgb(91, 76, 175);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px;
+}
+
+/*https://www.w3schools.com/howto/howto_css_fixed_footer.asp */
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#114068;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+  .otsake {
+    width: 100%;
+    background-color: #114068;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .viesti {
+    text-align: left;
+    background-color: white;
+    padding: 20px
+  }
+
+  /*painikkeet*/
+
+  .btnBig {
+    width: 400px;
+    margin: 10px;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+  }
+
+  .btnSmall {
+    width: 100px;
+    margin: 5px;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+  }
+
+  .btn {
+    width: 100px;
+    margin: 10px;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+  }
+
+  .btn1 {
+    background-color: rgb(91, 76, 175);
+  }
+
+  .btn2 {
+    background-color:#b3603d;
+  }
+
+  .btn3 {
+    background-color: rgb(226, 37, 78);
+  }
+
+  .btn4 {
+    background-color: black;
+  }
+
+  .btn5 {
+    background-color: #5f7f9e;
+  }
+
+
+/*taulukot https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy*/
+.tuotteet {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tuotteet td, .tuotteet th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/*.haku tr:nth-child(even){background-color: #f2f2f2;}*/
+
+.tuotteet tr {background-color: #f2f2f2;}
+
+.tuotteet tr:hover {background-color: #ddd;}
+
+.tuotteet th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: rgb(226, 37, 78);
+  color: white;
+  /*min-width: 80px;*/
+}
+
+.haku {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.haku tr {background-color: #f2f2f2;}
+
+.haku td {
+  /*border: 1px solid  white;*/
+  padding: 8px;
+  text-align: center;
+  /*background-color: rgb(162, 148, 243);*/
+}
+
+.haku th {
+  /*padding-top: 6px;
+  padding-bottom: 6px;
+  background-color:  rgb(91, 76, 175);*/
+  color: black;
+}
+
+.syoteTeksti {
+  width: 120px;
+}
+
+.syoteNro {
+  width: 90px;
+}

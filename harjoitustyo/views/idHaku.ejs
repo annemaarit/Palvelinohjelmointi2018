@@ -1,0 +1,36 @@
+<!--
+    file: idHaku.ejs
+    desc: Kumpparit Oy
+            - tuotteen haku Id:llä
+    date: 13.8.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+<div class="sisalto">
+        <form method="POST" action="/idHaku/">
+            <h3 class="lomakeNimi">Etsi tuote</h3>
+            <table class="haku" style="width: 250px">
+                <tr>
+                    <td>
+                        <input type="text" name="id" class="form-control" placeholder="Kirjoita id.."></<input>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" name="haeId" value="Tee haku" class="btn btn2">
+            <a href="/" class="btn btn2">Sulje</a>
+        </form>
+        
+        <!-- jos haku suoritettu -->
+        <% if (tuotteet){ %>
+            <% if (tuotteet.length>0){ %>  <!-- jos id/tuote löytyi -->
+                <%- include("includes/tuotteet") -%>
+            <% } else { %>                 <!-- id:tä ei ollut tietokannassa-->
+                <p> 
+                    Id:llä <%=id%> ei löytynyt tuotetta.
+                </p>
+            <% } %>
+        <% } %>
+</div>
+  
+
+<%- include("includes/footer"); -%>

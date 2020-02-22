@@ -1,0 +1,42 @@
+<%- include("includes/header"); -%>
+<%- include("includes/sidebar"); -%>
+
+        <h2><%=otsikko%></h2>
+
+       <!-- <form method="GET" action="/">
+            <input class="btn btn-success" type="submit" name="Vaihda" value="vaihda"> <%=painiketeksti%>
+        </form>-->
+
+       <a href="/" class="btn btn-success mb-4"><%= painiketeksti%></a>
+
+        <table class="table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Koodi</th>
+                    <th>Nimi</th>
+                    <th>Maakunta</th>
+                    <th>Seutukunta</th>
+                    <th>Kuntamuoto</th>
+                </tr> 
+            </thead>
+            <tbody>    
+            <% datat.forEach((data) => { %> <!--huom prosenttimerkit. JOKAISEN rivin läpikäynti-->
+                <tr>                    
+                    <td><%= data.Kuntakoodi %></td> <!--huom prosenttimerkit. YKSITTÄISEN RIVIN TIEDOT--> 
+                    <td><%
+                        if ((data.Nimi_fi)==((data.Nimi_se).trim())){ %>
+                            <%= data.Nimi_fi; %>
+                        <% }
+                        else{ %>
+                            <%= data.Nimi_fi+" ("+data.Nimi_se+")"; %>
+                        <% } %>
+                    </td> 
+                    <td><%= data.Maakunta %></td> 
+                    <td><%= data.Seutukunta %></td> 
+                    <td><%= data.Kuntamuoto %></td> 
+                </tr>
+            <% }); %>
+            </tbody>
+        </table>    
+        
+<%- include("includes/footer") -%>

@@ -1,0 +1,42 @@
+<!--
+    file: ryhmat.ejs
+    desc: Kumpparit Oy
+            - kaikkien tuoteryhmien taulukko
+    date: 15.8.2019
+    auth: Maarit Parkkonen
+--> 
+
+<table class="tuotteet">
+        <tr>
+            <th>Malli</th>
+            <th>Väri</th>
+            <th>Koko</th>
+            <th>Kpl</th>
+            <th></th>
+        </tr>
+        
+        <% let edellinen={"malli":"","vari":""} %>
+        <% tuotteet.forEach((tuote)=> { %>  <!-- rivien läpikäynti -->
+            <tr>
+                <% if (edellinen.malli!=tuote.malli) { %>   <!-- jos malli vaihtuu-->
+                    <td style="font-weight: bold"><%=tuote.malli%></td> <!-- korostus -->
+                <% } else { %> 
+                    <td style="color:grey"><%=tuote.malli%></td>    <!-- haalennus -->
+                <% }; %>
+
+                <% if (tuote.vari=="vihrea"){ %>
+                    <td>vihreä</td>
+                <% } else { %>
+                    <td><%=tuote.vari%></td>
+                <% }; %>
+                
+                <td><%=tuote.koko%></td>
+                <td><%=tuote.kpl%></td>
+                <!-- tuoteryhmän näyttöpainike, välitetään ryhmän ominaisuudet-->
+                <td> <a href="/varasto/<%=tuote.malli%>/<%=tuote.vari%>/<%=tuote.koko%>" class="btnSmall btn1">Näytä</i></a></td> 
+            </tr>
+            <% edellinen=tuote %>
+        <% }); %>
+            
+
+</table>

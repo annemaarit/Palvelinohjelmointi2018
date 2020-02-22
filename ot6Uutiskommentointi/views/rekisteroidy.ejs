@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Uutiset</title>
+   
+    <link rel="stylesheet" href="/css/login.css" type="text/css">
+    <!--https://www.w3schools.com/howto/howto_css_signup_form.asp-->
+
+</head>
+
+<body>
+    
+    <div class="container">
+        <form  method="POST" action="/tallennaKayttaja/" style="border:1px solid #ccc">
+            <div class="container">
+              <h1>Rekisteröidy</h1>
+              <hr>
+          
+              <label for="tunnus"><b>Tunnus</b></label>
+              <input type="text" placeholder="Kirjoita tunnus.." name="tunnus" required>
+          
+              <label for="salasana"><b>Salasana</b></label>
+              <input type="password" placeholder="Kirjoita salasana.." name="salasana" required>
+              
+              <div class="clearfix">
+                <button type="submit" class="signupbtn">Liity käyttäjäksi</button>
+                <a href="/"><button type="button" class="cancelbtn">Peruuta</button></a>
+              </div>
+
+            </div>
+          </form>    
+
+    </div>
+    
+</body>
+
+</html>

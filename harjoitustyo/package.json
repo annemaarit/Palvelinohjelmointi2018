@@ -1,0 +1,17 @@
+{
+  "name": "kumpparioy",
+  "version": "1.0.0",
+  "description": "Kumppari Oy:n varasto kirjanpito",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maarit Parkkonen",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}

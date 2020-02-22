@@ -1,0 +1,57 @@
+<%- include("includes/header"); -%>
+
+<body>
+
+<div class="palkki"><h1>JouluSanomat</h1></div> 
+
+<div class="container">
+    <% uutiset.forEach ((uutinen)=>{ %>
+         <div class="card">
+             <h1><%=uutinen.otsikko%></h1>
+             <div class="newspaper"><%-uutinen.sisalto-%></div> <!--huom! ei =, vaan pelkkä -, jotta html muotoilut huomioidaan-->
+
+             <% if (kommentoi) { %>
+                <hr>
+                <h3>Kommentit:</h3>         
+                <% kommentit.forEach(kommentti => { %>
+                    <% if (kommentti.uutisId==uutinen.id){ %>
+                        <% let aika = new Date(kommentti.aika); %>
+                        <p><%=aika.getDate()%>.<%=aika.getMonth()+1%>.<%=aika.getFullYear()%> <%=aika.getHours()%>:<%=aika.getMinutes()%> <i><%=kommentti.kirjoittaja%>: </i></p>
+                        <p style="padding-left: 20px"><%=kommentti.teksti%></p>
+                    <% } %>
+               <% }); %>
+
+                <form  method="POST" action="/tallennaKommentti/">
+                    <hr>
+                    <h3>Kommentoi:</h3>   
+                    <textarea class="form-control" name="teksti" placeholder="Kirjoita tähän.."></textarea>
+                    <input type="hidden" id="uutisId" name="uutisId" value=1>
+                    <button type="submit" class="btn">Lähetä kommentti</button>
+                </form>
+             <% } %>
+         </div>
+     <% }); %>
+     <% if (kommentoi) { %>
+
+        <div class="dropup">
+            <button class="dropbtn">Valitse poistettava kommentti</button>
+            <div class="dropup-content">
+                <% kommentit.forEach ((kommentti)=>{ %>
+                    <% if (kommentti.kirjoittaja==kayttaja){ %>
+                        <% let aika = new Date(kommentti.aika); %>
+                        <% let alku = (kommentti.teksti).substr(0,12); %>
+                        <a href="/poista/<%=kommentti.aika%>"><%=aika.getDate()%>.<%=aika.getMonth()+1%>.<%=aika.getFullYear()%> <%=aika.getHours()%>:<%=aika.getMinutes()%> <%=alku %>...</a>
+                    <% } %>
+                <% }); %>
+            </div>
+          </div>
+
+        <a href="/logout/" class="btn">Kirjaudu ulos</a>
+    <% } else { %>
+        <a href="/kirjaudu/" class="btn">Kirjaudu sisään kommentoidaksesi</a>
+     <% } %>
+    
+</div>
+
+</body>
+<%- include("includes/footer"); -%>

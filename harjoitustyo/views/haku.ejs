@@ -1,0 +1,64 @@
+<!--
+    file: haku.ejs
+    desc: Kumpparit Oy
+            - tuotteiden hakulomake
+                *hakuehtoina ominaisuudet
+                *monivalinta sallittu (poiminta hiiri+ctrl)
+    date: 18.8.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+<div class="sisalto">
+        <form method="POST" action="/haku/">
+          <h3 class="lomakeNimi">Hae tuotteita</h3>
+          <table class="haku">
+                <tr>
+                    <th>Malli</th>
+                    <th>Väri</th>
+                    <th>Koko</th>
+                </tr>
+                <tr>
+                    <!-- hakuehtojen valikot -->
+                    <% let haku=true %>
+                    <%- include("includes/valikkorivi", {"nimi":"malli","ominaisuus":ominaisuudet.mallit,"haku":haku,"valittu":""}) -%>
+                    <%- include("includes/valikkorivi", {"nimi":"vari","ominaisuus":ominaisuudet.varit,"haku":haku,"valittu":""}) -%>
+                    <%- include("includes/valikkorivi", {"nimi":"koko","ominaisuus":ominaisuudet.koot,"haku":haku,"valittu":""}) -%>
+              </tr>
+          </table>
+          <input type="submit" name="haeTuotteet" value="Tee haku" class="btn btn2">
+          <a href="/" class="btn btn2">Sulje</a>
+        </form>
+
+        <!-- haun tulokset -->
+        <% if (valinnat=="tyhja"){ %>       <!-- hakuehtoja ei ole valittu-->
+            Valitse haettavat ominaisuudet.
+        <% } else { %>                      <!-- haku suoritettu-->
+            <% if (tuotteet){ %>            <!-- jos tulos olemassa-->
+                <div class="viesti">
+                    <% let kpl=tuotteet.length %>
+
+                    <!-- yhteenvetotiedot -->
+                    <span style="font-weight: bold">Varastossa</span> on <%=kpl%> kpl tuotteita ominaisuuksilla:
+                    <ul >
+                        <% if (valinnat.malli!=null) {%>
+                            <li>Malli: <%=valinnat.malli%></li>
+                        <% } %>
+                        <% if (valinnat.vari!=null) {%>
+                            <li>Väri: <%=valinnat.vari%></li>
+                        <% } %>
+                        <% if (valinnat.koko!=null) {%>
+                            <li>Koko: <%=valinnat.koko%></li>
+                        <% } %>
+                    </ul>
+
+                    <% if (kpl>0) { %>  <!-- jos tuotteita löytyi -->
+                        <%- include("includes/tuotteet") -%>
+                     <% } %>
+                </div>
+            <% } %>
+        <% } %>
+
+</div> <!-- sisalto -->
+  
+
+<%- include("includes/footer"); -%>

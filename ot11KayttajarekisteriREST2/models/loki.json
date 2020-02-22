@@ -1,0 +1,22 @@
+[
+  {
+    "kayttajanimi": "Hessu",
+    "aika": "19.1.2019 17:22:22",
+    "metodi": "PUT"
+  },
+  {
+    "kayttajanimi": "Hessu",
+    "aika": "19.1.2019 17:21:21",
+    "metodi": "DELETE"
+  },
+  {
+    "kayttajanimi": "Hessu",
+    "aika": "19.1.2019 17:21:21",
+    "metodi": "POST"
+  },
+  {
+    "kayttajanimi": "Hessu",
+    "aika": "19.1.2019 17:21:21",
+    "metodi": "GET"
+  }
+]

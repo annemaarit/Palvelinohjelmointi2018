@@ -1,0 +1,17 @@
+{
+  "name": "ot6",
+  "version": "1.0.0",
+  "description": "ot6",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maarit Parkkonen",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6"
+  }
+}

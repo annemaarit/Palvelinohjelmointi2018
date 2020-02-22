@@ -1,0 +1,26 @@
+[
+  {
+    "otsikko": "terve",
+    "aikaleima": 1545916845949,
+    "kirjoittaja": "Anselmi Tonttu",
+    "teksti": "",
+    "hyva": 3,
+    "huono": 1
+  },
+  {
+    "otsikko": "kukkuu",
+    "aikaleima": 1545916838772,
+    "kirjoittaja": "Anselmi Tonttu",
+    "teksti": "<p>sdkjo&aring;ihs</p><p>jd&aring;oihjfd&aring;soih</p><p>poijdf&aring;oihs</p>",
+    "hyva": 1,
+    "huono": 2
+  },
+  {
+    "otsikko": "Toimii, toimii",
+    "aikaleima": 1545906317314,
+    "kirjoittaja": "Anselmi Tonttu",
+    "teksti": "<ul><li>srsdghtd</li><li>dhadhth</li><li>dhdhd</li></ul>",
+    "hyva": 0,
+    "huono": 0
+  }
+]

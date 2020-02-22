@@ -1,0 +1,22 @@
+<!--
+    file: valikkorivi.ejs
+    desc: Kumpparit Oy
+            - ominaisuuden (malli,vari,koko) valintavalikko
+    date: 11.8.2019
+    auth: Maarit Parkkonen
+-->     
+    <td>
+        <% if(haku==true) { %>          <!-- hakusivulle sallitaan monivalinta-->
+            <select name="<%=nimi%>" class="form-control syoteTeksti" size="5" multiple>
+        <% } else { %>                  <!-- muut sivut: alasvetovalikko-->
+            <select name="<%=nimi%>" class="form-control syoteTeksti">
+        <% } %>
+        <% ominaisuus.forEach((arvo) => { %>    <!-- valikon sisältö -->
+            <% if (valittu==arvo) { %>          <!-- jos oletusarvo, merkitään valituksi -->
+                <option value="<%=arvo%>" selected><%=arvo%></option>
+            <% } else { %>
+                <option value="<%=arvo%>"><%=arvo%></option>
+            <% } %>
+        <% }); %>
+            </select>
+    </td>

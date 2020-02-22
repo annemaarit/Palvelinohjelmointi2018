@@ -1,0 +1,9 @@
+<!--hakukohteen valintapainikkeet-->
+<label class="radio-inline ml-3 mt-2">
+    <% if (lomaketiedot.kohde == kohde) { %>
+            <input type="radio" name="kohde" value="<%=kohde%>" checked> <!--on valittu-->
+         <% } else { %> 
+            <input type="radio" name="kohde" value="<%=kohde%>"> <!--ei valittu-->
+        <% } %>
+            <%=kohde%>
+</label>

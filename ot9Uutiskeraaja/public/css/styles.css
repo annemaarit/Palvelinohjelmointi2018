@@ -1,0 +1,59 @@
+/*  file: styles.css
+    desc: OT9, uutiskerääjä
+    date: 16.1.2019
+    auth: Maarit Parkkonen*/
+    
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_contact_form*/
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.container {
+  border-radius: 5px;
+  background-color: rgb(105, 163, 238);
+  padding: 20px;
+}
+
+#otsake {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/*https://www.w3schools.com/howto/howto_css_cards.asp*/
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.384);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  background-color: white;
+  padding: 2px 16px;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+/*https://www.w3schools.com/howto/howto_css_fixed_footer.asp */
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(35, 35, 39);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 10px;
+}
+
+  .palkki {
+    width: 100%;
+    background-color: rgb(35, 35, 39);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+img {
+  margin-bottom: 10px;
+  min-width: 200px;
+  max-width: 400px;
+}

@@ -1,0 +1,38 @@
+<!--
+    file: muokkaa.ejs
+    desc: Kumpparit Oy
+            - tuotetietojen muokkaus
+    date: 15.8.2019
+    auth: Maarit Parkkonen
+--> 
+<%- include("includes/header"); -%>
+
+    <div class="sisalto">
+      <form method="POST" name="muokkaus" action="/tallenna/<%=tuote[0].id%>/<%=sivu%>" onSubmit="return vahvistaTallennus()">
+        <h3 class="lomakeNimi">Muokkaa</h3>
+        <table class="haku">
+            <tr>
+                <th>Id</th>
+                <th>Malli</th>
+                <th>Väri</th>
+                <th>Koko</th>
+            </tr>
+            <tr>
+                <td><%=tuote[0].id%></td>   <!-- tuotteen id -->
+                <% let haku=false %>
+                <!-- ominaisuusvalikot, tuotteen ominaisuudet valittuina -->
+                <%- include("includes/valikkorivi", {"nimi":"malli","ominaisuus":ominaisuudet.mallit,"haku":haku,"valittu":tuote[0].malli}) -%>
+                <%- include("includes/valikkorivi", {"nimi":"vari","ominaisuus":ominaisuudet.varit,"haku":haku,"valittu":tuote[0].vari}) -%>
+                <%- include("includes/valikkorivi", {"nimi":"koko","ominaisuus":ominaisuudet.koot,"haku":haku,"valittu":tuote[0].koko}) -%>
+            </tr>
+        </table>
+        <input type="submit" name="tallenna" value="Tallenna" class="btn">
+        
+        <!-- palauttaa edelliselle sivulle -->
+        <button class="btn btn2" onclick="edellinenSivu()">Sulje</button> 
+        
+      </form>
+
+    </div>
+
+<%- include("includes/footer"); -%>
